@@ -1,0 +1,307 @@
+:root {
+    --primary-color: #00b4d8;
+    --warning-color: #ffd60a;
+    --danger-color: #ef476f;
+    --text-color: #e9ecef;
+    --text-secondary: #adb5bd;
+    --bg-color: #1a1b1e;
+    --card-bg: #2b2d31;
+    --card-hover: #32353a;
+    --border-color: #40444b;
+    --border-radius: 12px;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Noto Sans SC', sans-serif;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.dashboard-header {
+    margin-bottom: 30px;
+    padding: 20px;
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-content h1 {
+    font-size: 1.8rem;
+    color: var(--text-color);
+}
+
+.current-date {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+}
+
+.input-section {
+    background: var(--card-bg);
+    padding: 25px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    margin-bottom: 30px;
+    border: 1px solid var(--border-color);
+}
+
+.input-group {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+    align-items: flex-start;
+}
+
+.input-field {
+    flex: 0 1 auto;
+}
+
+.input-field label {
+    display: block;
+    margin-bottom: 6px;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.input-field input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: var(--transition);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+.input-field input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(75, 192, 192, 0.2);
+}
+
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 12px;
+}
+
+.button-group button {
+    min-width: 100px;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.button-group button i {
+    font-size: 1.1rem;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+}
+
+.btn-primary:hover {
+    background-color: #0096b4;
+}
+
+.btn-warning {
+    background-color: var(--warning-color);
+    color: #000;
+}
+
+.btn-warning:hover {
+    background-color: #e6c00a;
+}
+
+.btn-danger {
+    background-color: var(--danger-color);
+    color: var(--text-color);
+}
+
+.btn-danger:hover {
+    background-color: #d63e63;
+}
+
+.btn-success {
+    background-color: #2a9d8f;
+    color: var(--text-color);
+}
+
+.btn-success:hover {
+    background-color: #238b7e;
+}
+
+.charts-wrapper {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 25px;
+}
+
+.daily-chart-container,
+.monthly-chart-container {
+    background: var(--card-bg);
+    padding: 25px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    height: 450px;
+    transition: var(--transition);
+    border: 1px solid var(--border-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.daily-chart-container:hover,
+.monthly-chart-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    background: var(--card-hover);
+}
+
+.chart-header {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.chart-header h2 {
+    font-size: 1.3rem;
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 25px;
+    border-radius: 8px;
+    color: white;
+    font-weight: 500;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    animation: slideIn 0.3s ease-out;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.notification.success {
+    background-color: #2a9d8f;
+}
+
+.notification.error {
+    background-color: var(--danger-color);
+}
+
+.notification.info {
+    background-color: var(--primary-color);
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@media (max-width: 1024px) {
+    .charts-wrapper {
+        grid-template-columns: 1fr;
+    }
+    
+    .input-group {
+        flex-direction: column;
+    }
+    
+    .button-group {
+        flex-wrap: wrap;
+    }
+}
+
+.input-field input::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-color);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--text-secondary);
+}
+
+/* 日期输入框样式 */
+.input-field input[type="date"] {
+    width: 160px;
+    padding: 8px 12px;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 0.95rem;
+    transition: var(--transition);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+/* 数量输入框样式 */
+.input-field input[type="number"] {
+    width: 120px;
+    padding: 8px 12px;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 0.95rem;
+    transition: var(--transition);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+} 
